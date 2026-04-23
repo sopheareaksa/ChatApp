@@ -35,14 +35,6 @@ class SettingsFragment : Fragment() {
         val email = currentUser?.email ?: ""
         binding.tvUserName.text = email
 
-        // Set profile image based on current user email
-        val imageRes = when (email.lowercase()) {
-            "reaksa19@gmail.com" -> R.drawable.boy
-            "sokchanleap29@gmail.com" -> R.drawable.girl
-            else -> android.R.drawable.ic_menu_gallery
-        }
-        binding.ivProfile.setImageResource(imageRes)
-
         binding.btnLogout.setOnClickListener {
             viewModel.logout()
             val intent = Intent(requireContext(), LoginActivity::class.java)
